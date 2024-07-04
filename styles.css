@@ -12,7 +12,6 @@
 
 .logo {
   height: 9.8rem;
-  padding: 18px;
 }
 /********************/
 /*NAVIGATION*/
@@ -151,6 +150,7 @@
 }
 .step-desciption-underline {
   font-weight: bold;
+  color: #333;
 }
 
 .why-img-box {
