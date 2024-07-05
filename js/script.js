@@ -69,4 +69,56 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
       });
   });
+
+/////COOKIE\\\\\
+  let cookieConsent = document.getElementById("cookieConsent");
+  let acceptCookiesButton = document.getElementById("acceptCookies");
+  let denyCookiesButton = document.getElementById("denyCookies");
+
+    // Kontrolli, kas küpsis on juba määratud
+    if (!getCookie("cookiesAccepted")) {
+        cookieConsent.style.display = "block";
+    }
+
+    // Küpsiste nõusoleku käsitlemine
+    acceptCookiesButton.addEventListener("click", function() {
+        setCookie("cookiesAccepted", "true", 365);
+        hideCookieConsent();
+    });
+
+    // Küpsiste keeldumise käsitlemine
+    denyCookiesButton.addEventListener("click", function() {
+        hideCookieConsent();
+    });
+
+    //küpsise teavituse peitmine
+    function hideCookieConsent() {
+      cookieConsent.classList.add("hide");
+      setTimeout(function() {
+        cookieConsent.style.display = "none;"
+      }, 1000);
+    }
+
+    // Küpsise seadistamine
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    // Küpsise hankimine
+    function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+            let c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
 });
