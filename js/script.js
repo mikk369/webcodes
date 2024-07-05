@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Küpsiste nõusoleku käsitlemine
     acceptCookiesButton.addEventListener("click", function() {
-        setCookie("cookiesAccepted", "true", 365);
+        setCookie("cookiesAccepted", "googleAnalytics: true", 365);
         hideCookieConsent();
     });
 
@@ -121,4 +121,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return null;
     }
+
+    // Initialize Google Analytics
+    function initializeGoogleAnalytics() {
+      gtag('config', 'G-6QNEM2WCLK');
+    }
+
+  // Check if cookies are already accepted
+  if (getCookie("cookiesAccepted") === "googleAnalytics: true") {
+    initializeGoogleAnalytics();
+  }
 });
