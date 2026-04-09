@@ -1,72 +1,39 @@
-//STICKI NAVIGATION \\
-const sectionHero = document.querySelector('.section-hero');
-const obs = new IntersectionObserver(
-  function (entries) {
-    const ent = entries[0];
-    if (ent.isIntersecting === false) {
-      document.body.classList.add('sticky');
-    } else {
-      document.body.classList.remove('sticky');
-    }
-  },
-  {
-    //in the viewport (inside the whole browser window)
-    root: null,
-    threshold: 0,
-    rootMargin: '-96px',
-  }
-);
-obs.observe(sectionHero);
-
-/// Open close mobile nav \\\
-const openMenu = document.querySelector('.btn-mobile-nav');
-const header = document.querySelector('.header');
-
-openMenu.addEventListener('click', (e) => {
-  e.preventDefault();
-  header.classList.toggle('nav-open');
-});
-
-//HANDLE SUBMITED MESSAGE\\
+// Lead form handling — scoped per form
 document.addEventListener('DOMContentLoaded', function () {
-  // Get a reference to the form and the notification div
-  const form = document.querySelector('.cta-form');
-  const messageSentNotification = document.getElementById('messageSent');
+  const forms = document.querySelectorAll('.lead-form');
 
-  // Add an event listener for the form submission
-  form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+  forms.forEach((form) => {
+    const notification = form.querySelector('.notification');
 
-    // Serialize the form data
-    const formData = new FormData(form);
+    const showNotification = (text, isError) => {
+      if (!notification) return;
+      notification.textContent = text;
+      notification.classList.toggle('is-error', !!isError);
+      notification.classList.add('is-visible');
+      setTimeout(() => notification.classList.remove('is-visible'), 5000);
+    };
 
-    // Perform a POST request using fetch
-    fetch('php/send_email.php', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response as needed
-        if (data.success) {
-          // Display the message sent notification
-          messageSentNotification.style.display = 'block';
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-          // Clear the form fields
-          form.reset();
-          // Scroll the page 1 rem up
-          window.scrollBy(0, -80);
-          // Hide the notification after 3 seconds
-          setTimeout(function () {
-            messageSentNotification.style.display = 'none';
-          }, 3000); // 3 seconds
-        } else {
-          // Handle the case where the email couldn't be sent
-          console.error('Message could not be sent.');
-        }
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
       })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+        .then((response) => response.json().catch(() => ({ success: false })))
+        .then((data) => {
+          if (data && data.success) {
+            showNotification('Aitäh! Võtame sinuga peagi ühendust 👋', false);
+            form.reset();
+          } else {
+            showNotification((data && data.message) || 'Midagi läks valesti. Proovi uuesti.', true);
+          }
+        })
+        .catch(() => {
+          showNotification('Midagi läks valesti. Proovi uuesti.', true);
+        });
+    });
   });
 });
