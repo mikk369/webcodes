@@ -4,6 +4,42 @@ All notable changes to the WebCodes website project.
 
 ---
 
+## [2.1.0] - 2026-04-11
+
+### Broader Service Positioning & SEO Improvements
+
+Updated messaging to reflect that WebCodes offers IT systems and solutions alongside websites, and added SEO enhancements.
+
+### Changed
+
+- **Page title & meta description** — broadened from "kodulehed väikefirmadele" to "kodulehed ja IT-lahendused ettevõtetele"
+- **H1 headline** — now includes "ja IT-lahendused sinu ettevõttele"
+- **Hero subheading** — mentions websites and IT solutions
+- **Trust badges** — changed to "Iga klient loeb" and "Sinu idee, meie teostus" (removed "50+ klienti" and "Eesti väikefirmadele")
+- **Benefits heading** — "Miks ettevõtted valivad meid" (was "väikefirmad")
+- **Fast delivery benefit** — added "IT-lahendused kokkuleppel"
+- **How it works steps 3 & 4** — broadened to cover IT solutions, step 4 renamed "Projekt valmis"
+- **FAQ pricing** — updated price to 300€, added IT solutions pricing info
+- **FAQ technology** — "Kodulehe jaoks soovitame WordPressi... keerulisemate kodulehtede ja IT-süsteemide jaoks ehitame eritellimusel"
+- **FAQ maintenance** — minor text fix
+- **Portfolio** — replaced Paide lasteaed with Agilityliit competition calendar system
+- **Testimonials section** — commented out (to be re-added with real testimonials)
+- **Header** — removed phone number from header
+- **Footer** — removed phone number
+- **CTA section** — simplified subheading
+
+### Added
+
+- **New FAQ item** — "Milliseid IT-lahendusi te pakute?" covering internal systems, automation, databases, APIs
+- **Open Graph tags** — og:title, og:description, og:type, og:url, og:locale, og:site_name, og:image
+- **Canonical URL** — `<link rel="canonical" href="https://webcodes.ee/" />`
+- **Robots meta tag** — `<meta name="robots" content="index, follow" />`
+- **Theme color** — `<meta name="theme-color" content="#FF8A5B" />` for mobile browsers
+- **JSON-LD structured data** — ProfessionalService schema with aggregate rating
+- **JSON-LD FAQ schema** — FAQPage structured data for Google rich results
+
+---
+
 ## [2.0.0] - 2026-04-09
 
 ### Complete Redesign — Warm & Friendly Lead Generation Landing Page

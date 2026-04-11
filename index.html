@@ -11,8 +11,18 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="WebCodes — sõbralikud kodulehed Eesti väikefirmadele ja startup'idele. Küsi tasuta pakkumist." />
-    <title>WebCodes | Sõbralikud kodulehed väikefirmadele</title>
+    <meta name="description" content="WebCodes — kodulehed ja IT-lahendused Eesti ettevõtetele. Küsi tasuta pakkumist." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webcodes.ee/" />
+    <meta property="og:title" content="WebCodes | Kodulehed ja IT-lahendused ettevõtetele" />
+    <meta property="og:description" content="WebCodes — kodulehed ja IT-lahendused Eesti ettevõtetele. Küsi tasuta pakkumist." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webcodes.ee/" />
+    <meta property="og:locale" content="et_EE" />
+    <meta property="og:site_name" content="WebCodes" />
+    <meta property="og:image" content="https://webcodes.ee/pildid/logo.png" />
+    <meta name="theme-color" content="#FF8A5B" />
+    <title>WebCodes | Kodulehed ja IT-lahendused ettevõtetele</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +31,75 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./general.css" />
     <link rel="stylesheet" href="./queries.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "WebCodes",
+      "url": "https://webcodes.ee",
+      "telephone": "+37255528329",
+      "email": "info@webcodes.ee",
+      "description": "Kodulehed ja IT-lahendused Eesti ettevõtetele",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EE"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "50"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kui palju koduleht või IT-lahendus maksab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lihtne koduleht algab 300€-st. IT-lahenduste hind sõltub projekti mahust — küsi tasuta pakkumist ja anname ausa hinnangu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kui kaua võtab kodulehe tegemine aega?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enamik projekte valmib 2–4 nädalaga. Suuremad lahendused võivad võtta kuni 8 nädalat. Lepime tähtajad alguses kokku."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WordPress või eritellimusel koduleht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sõltub sinu vajadustest. Kodulehe jaoks soovitame tihti WordPressi — seda on lihtne ise hallata. Keerulisemate kodulehtede ja IT-süsteemide jaoks ehitame eritellimusel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kas pakute ka hooldust pärast valmimist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jah! Pakume igakuist hoolduspaketti, mis katab uuendusi, varundused ja väikesed muudatused. Võid ka ise hallata — õpetame su selgeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Milliseid IT-lahendusi te pakute?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teeme erinevaid IT-süsteeme vastavalt vajadusele — sisehaldussüsteemid, automaatika, andmebaasid, API-liidesed ja muu. Räägi oma vajadusest ja leiame parima lahenduse."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -28,7 +107,6 @@
         <img src="./pildid/Kaasaegne_teaduslogo_ja_branding.webp" alt="WebCodes" class="logo" />
       </a>
       <div class="header-right">
-        <a href="tel:+37255528329" class="header-phone">+372 5552 8329</a>
         <a href="#kontakt" class="btn btn-header">Küsi tasuta pakkumist</a>
       </div>
     </header>
@@ -41,18 +119,18 @@
         <div class="container">
           <div class="hero-grid">
             <div class="hero-text">
-              <span class="eyebrow">Tere tulemast 👋</span>
+              <span class="eyebrow">Tere tulemast</span>
               <h1 class="heading-primary">
-                Sõbralikud kodulehed sinu väikefirmale
+                Sõbralikud kodulehed ja IT-lahendused sinu ettevõttele
               </h1>
               <p class="hero-sub">
-                Me aitame Eesti väikeettevõtjatel ja startup'idel saada ilusa, kiire ja müüva
-                kodulehe — ilma peavaluta ja sõbraliku hinnaga.
+                Me aitame Eesti ettevõtetel saada ilusa kodulehe või toimiva
+                IT-lahenduse — ilma peavaluta ja sõbraliku hinnaga.
               </p>
               <ul class="trust-row">
                 <li><strong>★★★★★</strong> 4.9/5</li>
-                <li>50+ rahulolevat klienti</li>
-                <li>Eesti väikefirmadele</li>
+                <li>Iga klient loeb</li>
+                <li>Sinu idee, meie teostus</li>
               </ul>
             </div>
 
@@ -95,7 +173,7 @@
       <!-- BENEFITS -->
       <section class="section-benefits">
         <div class="container">
-          <h2 class="heading-secondary">Miks väikefirmad valivad meid</h2>
+          <h2 class="heading-secondary">Miks ettevõtted valivad meid</h2>
           <div class="benefits-grid">
             <article class="benefit-card benefit-card--mint">
               <img src="./pildid/handshake.svg" alt="" class="benefit-icon" />
@@ -110,7 +188,7 @@
             <article class="benefit-card benefit-card--yellow">
               <img src="./pildid/clock-clockwise.svg" alt="" class="benefit-icon" />
               <h3 class="heading-tertiary">Kiire valmimine</h3>
-              <p>Lihtne koduleht valmib paari nädalaga. Ei mingit venitamist ega üllatusi.</p>
+              <p>Lihtne koduleht valmib paari nädalaga, IT-lahendused kokkuleppel. Ei mingit venitamist ega üllatusi.</p>
             </article>
           </div>
         </div>
@@ -124,7 +202,7 @@
             <li class="process-step">
               <span class="step-num">1</span>
               <h3 class="heading-tertiary">Võta ühendust</h3>
-              <p>Täida vorm või helista — alustame vestlusest.</p>
+              <p>Täida vorm — alustame vestlusest.</p>
             </li>
             <li class="process-step">
               <span class="step-num">2</span>
@@ -134,12 +212,12 @@
             <li class="process-step">
               <span class="step-num">3</span>
               <h3 class="heading-tertiary">Disain & arendus</h3>
-              <p>Loome ilusa kodulehe ja hoiame sind kursis iga sammuga.</p>
+              <p>Loome kodulehe või IT-lahenduse ja hoiame sind kursis iga sammuga.</p>
             </li>
             <li class="process-step">
               <span class="step-num">4</span>
-              <h3 class="heading-tertiary">Koduleht valmis</h3>
-              <p>Paneme lehe üles ja õpetame sulle, kuidas seda kasutada.</p>
+              <h3 class="heading-tertiary">Projekt valmis</h3>
+              <p>Paneme lahenduse tööle ja õpetame sulle, kuidas seda kasutada.</p>
             </li>
           </ol>
         </div>
@@ -150,12 +228,12 @@
         <div class="container">
           <h2 class="heading-secondary">Hiljutine töö</h2>
           <article class="work-card">
-            <img src="./pildid/project-1.webp" class="work-img" alt="Paide lasteaed" />
+            <img src="./pildid/agilityliit-kalender.webp" class="work-img" alt="Agilityliit" />
             <div class="work-body">
-              <h3 class="heading-tertiary">Paide lasteaed</h3>
-              <p>WordPress + Elementor baasil ehitatud kaasaegne koduleht sõbralikele inimestele.</p>
+              <h3 class="heading-tertiary">Agilityliit</h3>
+              <p>Võistluskalendri süsteem, kus korraldajad saavad lisada võistlusi ja võistlejad registreerida end koos koeraga erinevatele võistlustele.</p>
               <a
-                href="https://pailasteaed.ee/"
+                href="https://agilityliit.ee/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="link-inline">
@@ -167,7 +245,7 @@
       </section>
 
       <!-- TESTIMONIALS -->
-      <section class="section-testimonials">
+      <!-- <section class="section-testimonials">
         <div class="container">
           <h2 class="heading-secondary">Mida kliendid ütlevad</h2>
           <div class="testimonials-grid">
@@ -187,7 +265,7 @@
             </figure>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- FAQ -->
       <section class="section-faq">
@@ -195,8 +273,8 @@
           <h2 class="heading-secondary">Korduma kippuvad küsimused</h2>
           <div class="faq-list">
             <details class="faq-item">
-              <summary>Kui palju koduleht maksab?</summary>
-              <p>Lihtne väikefirma koduleht algab 890€-st. Täpne hind sõltub sinu vajadustest — küsi tasuta pakkumist ja anname ausa hinnangu.</p>
+              <summary>Kui palju koduleht või IT-lahendus maksab?</summary>
+              <p>Lihtne koduleht algab 300€-st. IT-lahenduste hind sõltub projekti mahust — küsi tasuta pakkumist ja anname ausa hinnangu.</p>
             </details>
             <details class="faq-item">
               <summary>Kui kaua võtab kodulehe tegemine aega?</summary>
@@ -204,11 +282,15 @@
             </details>
             <details class="faq-item">
               <summary>WordPress või eritellimusel koduleht?</summary>
-              <p>Sõltub sinu vajadustest. Väikefirmale soovitame tihti WordPressi — seda on lihtne ise hallata. Keerulisemate lahenduste jaoks ehitame eritellimusel.</p>
+              <p>Sõltub sinu vajadustest. Kodulehe jaoks soovitame tihti WordPressi — seda on lihtne ise hallata. Keerulisemate kodulehtede ja IT-süsteemide jaoks ehitame eritellimusel.</p>
             </details>
             <details class="faq-item">
               <summary>Kas pakute ka hooldust pärast valmimist?</summary>
-              <p>Jah! Pakume igakuist hoolduspaketti, mis katab uuendused, varundused ja väikesed muudatused. Võid ka ise hallata — õpetame su selgeks.</p>
+              <p>Jah! Pakume igakuist hoolduspaketti, mis katab uuendusi, varundused ja väikesed muudatused. Võid ka ise hallata — õpetame su selgeks.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Milliseid IT-lahendusi te pakute?</summary>
+              <p>Teeme erinevaid IT-süsteeme vastavalt vajadusele — sisehaldussüsteemid, automaatika, andmebaasid, API-liidesed ja muu. Räägi oma vajadusest ja leiame parima lahenduse.</p>
             </details>
           </div>
         </div>
@@ -219,7 +301,7 @@
         <div class="container">
           <div class="cta-card">
             <h2 class="heading-secondary">Räägime sinu projektist</h2>
-            <p class="hero-sub">Jäta oma kontaktid ja võtame ise ühendust. Esimene vestlus on alati tasuta.</p>
+            <p class="hero-sub">Jäta oma kontaktid ja võtame ise ühendust.</p>
             <form action="php/send_email.php" class="lead-form lead-form--compact" method="POST">
               <label for="website-cta" class="visually-hidden">Website</label>
               <input type="text" id="website-cta" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" />
@@ -257,10 +339,8 @@
       <div class="container">
         <ul class="footer-list">
           <li><a href="mailto:info@webcodes.ee">info@webcodes.ee</a></li>
-          <li><a href="tel:+37255528329">+372 5552 8329</a></li>
           <li>WebCodes OÜ &middot; reg. nr. 16809459</li>
         </ul>
-        <p class="footer-note">Tehtud armastusega Eestis 🧡</p>
       </div>
     </footer>
 
