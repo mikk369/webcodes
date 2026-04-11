@@ -55,8 +55,8 @@ const translations = {
     faq5A: "Teeme erinevaid IT-süsteeme vastavalt vajadusele — sisehaldussüsteemid, automaatika, andmebaasid, API-liidesed ja muu. Räägi oma vajadusest ja leiame parima lahenduse.",
     ctaTitle: "Räägime sinu projektist",
     ctaSub: "Jäta oma kontaktid ja võtame ise ühendust.",
-    footerNote: "Tehtud armastusega Eestis 🧡",
-    notificationSuccess: "Aitäh! Võtame sinuga peagi ühendust 👋",
+    footerNote: "Tehtud armastusega Eestis",
+    notificationSuccess: "Aitäh! Võtame sinuga peagi ühendust",
     notificationError: "Midagi läks valesti. Proovi uuesti."
   },
   en: {
@@ -114,8 +114,8 @@ const translations = {
     faq5A: "We build various IT systems based on your needs — internal management systems, automation, databases, API integrations and more. Tell us your needs and we'll find the best solution.",
     ctaTitle: "Let's talk about your project",
     ctaSub: "Leave your contact info and we'll get in touch.",
-    footerNote: "Made with love in Estonia 🧡",
-    notificationSuccess: "Thank you! We'll get back to you soon 👋",
+    footerNote: "Made with love in Estonia",
+    notificationSuccess: "Thank you! We'll get back to you soon",
     notificationError: "Something went wrong. Please try again."
   }
 };
