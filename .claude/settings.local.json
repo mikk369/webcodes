@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(where magick:*)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "Bash(mkdir -p C:/Users/jogdi/Desktop/webcodes/php/vendor/PHPMailer)",
+      "Bash(curl -sSfLo PHPMailer.php https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.9.3/src/PHPMailer.php)",
+      "Bash(curl -sSfLo SMTP.php https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.9.3/src/SMTP.php)",
+      "Bash(curl -sSfLo Exception.php https://raw.githubusercontent.com/PHPMailer/PHPMailer/v6.9.3/src/Exception.php)",
+      "Bash(php -l php/send_email.php)",
+      "Bash(php -l php/vendor/PHPMailer/PHPMailer.php)",
+      "Bash(php -l php/vendor/PHPMailer/SMTP.php)",
+      "Bash(php -l php/vendor/PHPMailer/Exception.php)",
+      "Bash(php -l php/config.sample.php)",
+      "Bash(node --check js/script.js)",
+      "Bash(node --check js/i18n.js)"
     ]
   }
 }

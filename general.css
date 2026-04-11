@@ -188,3 +188,24 @@ p {
   background-color: #FDECEC;
   color: #B23A3A;
 }
+
+.notification-fallback-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.notification-fallback-link:hover {
+  opacity: 0.8;
+}
+
+/* Submit button pending state */
+.btn.is-pending {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}

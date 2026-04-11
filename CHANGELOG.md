@@ -4,6 +4,44 @@ All notable changes to the WebCodes website project.
 
 ---
 
+## [2.3.0] - 2026-04-11
+
+### SMTP Delivery via PHPMailer & Lead Form Hardening
+
+Fixed contact form emails silently disappearing on the way to `info@webcodes.ee` / `mikk.ereline@gmail.com`. Root cause was PHP's native `mail()` producing unauthenticated messages that failed SPF/DKIM at Gmail (especially over the webcodes.ee → gmail forward). Switched delivery to authenticated SMTP via Zone (`smtp.zone.eu:465`), and tightened the submit UX so visitors never hit a dead end if something does go wrong.
+
+### Added
+
+- **PHPMailer v6.9.3 vendored** at `php/vendor/PHPMailer/` — `PHPMailer.php`, `SMTP.php`, `Exception.php`. No Composer required on the host.
+- **`php/config.sample.php`** — tracked SMTP config template (host, port, secure mode, user, password, from/to addresses). Copy to `config.local.php` and fill in the mailbox password.
+- **`php/config.local.php`** — real credentials file, loaded at runtime by `send_email.php`. Gitignored.
+- **`.gitignore`** — new file, keeps `php/config.local.php` and `php/leads/` out of git.
+- **Submit button pending state** — disabled + "Saadan..." / "Sending..." text while the fetch is in flight, prevents double-submits and 30s rate-limit collisions.
+- **Mailto fallback link** in error notifications — if the POST fails, the notification now appends a clickable `mailto:info@webcodes.ee` so visitors can still reach us.
+- **i18n keys** — `btnSending` and `notificationErrorFallback` in both `et` and `en`.
+- **`.notification-fallback-link`, `.btn.is-pending`, `.btn:disabled`** CSS — matching the existing palette.
+
+### Changed
+
+- **`php/send_email.php`** — delivery layer rewritten to use PHPMailer over authenticated SMTP (`smtp.zone.eu:465`, SSL, `info@webcodes.ee` auth). Validation, honeypot, rate limit, sanitization, and JSON response shape all preserved. Config is loaded from `config.local.php` with required-key validation.
+- **`js/script.js`** — submit handler now tracks a per-form pending state, restores the button on both success and error paths via a trailing `.then()`, and renders the error notification (with mailto link) via safe DOM nodes instead of `innerHTML`. Notification auto-dismiss extended from 5s → 8s so visitors can read the fallback link.
+- **Error handling in `send_email.php`** — real SMTP failures are now logged server-side via `error_log('[webcodes lead form] ...')` (viewable in Zone's control panel) instead of being silently swallowed by `@mail()`. The client still sees a friendly Estonian error message with a direct-contact fallback, never raw diagnostics.
+
+### Fixed
+
+- **Contact form emails not arriving** — PHP's `mail()` handed messages to the local MTA with `From: info@webcodes.ee`, which Gmail rejected/dropped because the sending host wasn't authorized by webcodes.ee's SPF record and the forward through info@webcodes.ee broke DKIM alignment. Authenticated SMTP via Zone means outgoing mail is now properly signed for webcodes.ee and the forward to mikk.ereline@gmail.com works cleanly.
+- **Silent `mail()` failures** — the old `@mail(...)` suppressed errors entirely; PHPMailer now throws and the real reason hits `error_log`.
+- **Double-submit race with rate limiter** — clicking "Saada päring" twice in quick succession could trigger the 30s rate-limit on the second attempt; the button now disables on first click.
+
+### Security
+
+- **SMTP credentials never in git** — stored only in `php/config.local.php`, which is gitignored. `config.sample.php` holds placeholders only.
+- **No credential leakage in errors** — `log_error()` helper writes a short context tag + PHPMailer's `ErrorInfo` to `error_log`; request payloads and passwords are never logged.
+- **Graceful config failure** — missing or incomplete `config.local.php` returns HTTP 500 with a generic Estonian message pointing visitors to `info@webcodes.ee`, never leaking which key was missing.
+- **No `innerHTML` in notification rendering** — mailto fallback link is built via `createElement`/`createTextNode`, so even a future change that routes user-controlled text into the notification can't cause injection.
+
+---
+
 ## [2.2.0] - 2026-04-11
 
 ### English Language Support

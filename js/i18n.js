@@ -19,6 +19,7 @@ const translations = {
     placeholderMessage: "Räägi paari sõnaga oma ideest...",
     placeholderMessageCta: "Paar sõna sinu ideest...",
     btnSend: "Saada päring",
+    btnSending: "Saadan...",
     microText: "Vastame 24 tunni jooksul. Esimene konsultatsioon on tasuta.",
     microTextCta: "Vastame 24 tunni jooksul",
     notification: "Aitäh! Võtame sinuga peagi ühendust",
@@ -57,7 +58,8 @@ const translations = {
     ctaSub: "Jäta oma kontaktid ja võtame ise ühendust.",
     footerNote: "Tehtud armastusega Eestis",
     notificationSuccess: "Aitäh! Võtame sinuga peagi ühendust",
-    notificationError: "Midagi läks valesti. Proovi uuesti."
+    notificationError: "Midagi läks valesti. Proovi uuesti.",
+    notificationErrorFallback: "Või kirjuta otse:"
   },
   en: {
     headerCta: "Get a free quote",
@@ -78,6 +80,7 @@ const translations = {
     placeholderMessage: "Tell us a few words about your idea...",
     placeholderMessageCta: "A few words about your idea...",
     btnSend: "Send inquiry",
+    btnSending: "Sending...",
     microText: "We respond within 24 hours. First consultation is free.",
     microTextCta: "We respond within 24 hours",
     notification: "Thank you! We'll get back to you soon",
@@ -116,7 +119,8 @@ const translations = {
     ctaSub: "Leave your contact info and we'll get in touch.",
     footerNote: "Made with love in Estonia",
     notificationSuccess: "Thank you! We'll get back to you soon",
-    notificationError: "Something went wrong. Please try again."
+    notificationError: "Something went wrong. Please try again.",
+    notificationErrorFallback: "Or email us directly:"
   }
 };
 
