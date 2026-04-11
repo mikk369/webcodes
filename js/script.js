@@ -1,38 +1,49 @@
 // Lead form handling — scoped per form
 document.addEventListener('DOMContentLoaded', function () {
-  const forms = document.querySelectorAll('.lead-form');
+  var forms = document.querySelectorAll('.lead-form');
 
-  forms.forEach((form) => {
-    const notification = form.querySelector('.notification');
+  forms.forEach(function (form) {
+    var notification = form.querySelector('.notification');
 
-    const showNotification = (text, isError) => {
+    var showNotification = function (text, isError) {
       if (!notification) return;
       notification.textContent = text;
       notification.classList.toggle('is-error', !!isError);
       notification.classList.add('is-visible');
-      setTimeout(() => notification.classList.remove('is-visible'), 5000);
+      setTimeout(function () {
+        notification.classList.remove('is-visible');
+      }, 5000);
     };
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      const formData = new FormData(form);
+      var formData = new FormData(form);
+      var lang = localStorage.getItem('wc-lang') || 'et';
+      var t = typeof translations !== 'undefined' ? translations[lang] : null;
 
       fetch(form.action, {
         method: 'POST',
         body: formData,
       })
-        .then((response) => response.json().catch(() => ({ success: false })))
-        .then((data) => {
+        .then(function (response) {
+          return response.json().catch(function () {
+            return { success: false };
+          });
+        })
+        .then(function (data) {
           if (data && data.success) {
-            showNotification('Aitäh! Võtame sinuga peagi ühendust 👋', false);
+            var msg = t ? t.notificationSuccess : 'Aitäh! Võtame sinuga peagi ühendust 👋';
+            showNotification(msg, false);
             form.reset();
           } else {
-            showNotification((data && data.message) || 'Midagi läks valesti. Proovi uuesti.', true);
+            var fallback = t ? t.notificationError : 'Midagi läks valesti. Proovi uuesti.';
+            showNotification((data && data.message) || fallback, true);
           }
         })
-        .catch(() => {
-          showNotification('Midagi läks valesti. Proovi uuesti.', true);
+        .catch(function () {
+          var msg = t ? t.notificationError : 'Midagi läks valesti. Proovi uuesti.';
+          showNotification(msg, true);
         });
     });
   });

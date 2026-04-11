@@ -107,7 +107,8 @@
         <img src="./pildid/Kaasaegne_teaduslogo_ja_branding.webp" alt="WebCodes" class="logo" />
       </a>
       <div class="header-right">
-        <a href="#kontakt" class="btn btn-header">Küsi tasuta pakkumist</a>
+        <button class="btn-lang" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+        <a href="#kontakt" class="btn btn-header" data-i18n="headerCta">Küsi tasuta pakkumist</a>
       </div>
     </header>
 
@@ -119,51 +120,51 @@
         <div class="container">
           <div class="hero-grid">
             <div class="hero-text">
-              <span class="eyebrow">Tere tulemast</span>
-              <h1 class="heading-primary">
+              <span class="eyebrow" data-i18n="eyebrow">Tere tulemast</span>
+              <h1 class="heading-primary" data-i18n="heroTitle">
                 Sõbralikud kodulehed ja IT-lahendused sinu ettevõttele
               </h1>
-              <p class="hero-sub">
+              <p class="hero-sub" data-i18n="heroSub">
                 Me aitame Eesti ettevõtetel saada ilusa kodulehe või toimiva
                 IT-lahenduse — ilma peavaluta ja sõbraliku hinnaga.
               </p>
               <ul class="trust-row">
                 <li><strong>★★★★★</strong> 4.9/5</li>
-                <li>Iga klient loeb</li>
-                <li>Sinu idee, meie teostus</li>
+                <li data-i18n="trustClients">Iga klient loeb</li>
+                <li data-i18n="trustIdea">Sinu idee, meie teostus</li>
               </ul>
             </div>
 
             <div class="hero-form-card">
-              <h2 class="form-title">Küsi tasuta pakkumist</h2>
-              <p class="form-sub">Täida lühike vorm ja räägime sinu projektist.</p>
+              <h2 class="form-title" data-i18n="formTitle">Küsi tasuta pakkumist</h2>
+              <p class="form-sub" data-i18n="formSub">Täida lühike vorm ja räägime sinu projektist.</p>
               <form action="php/send_email.php" class="lead-form" method="POST">
                 <label for="website-hero" class="visually-hidden">Website</label>
                 <input type="text" id="website-hero" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" />
 
                 <div class="form-group">
-                  <label for="name-hero">Nimi</label>
-                  <input id="name-hero" type="text" name="full-name" placeholder="Sinu nimi" required />
+                  <label for="name-hero" data-i18n="labelName">Nimi</label>
+                  <input id="name-hero" type="text" name="full-name" placeholder="Sinu nimi" data-i18n-placeholder="placeholderName" required />
                 </div>
 
                 <div class="form-group">
-                  <label for="email-hero">E-post</label>
-                  <input id="email-hero" type="email" name="email" placeholder="sinu@email.ee" required />
+                  <label for="email-hero" data-i18n="labelEmail">E-post</label>
+                  <input id="email-hero" type="email" name="email" placeholder="sinu@email.ee" data-i18n-placeholder="placeholderEmail" required />
                 </div>
 
                 <div class="form-group">
-                  <label for="phone-hero">Telefon <span class="optional">(valikuline)</span></label>
+                  <label for="phone-hero"><span data-i18n="labelPhone">Telefon</span> <span class="optional" data-i18n="labelOptional">(valikuline)</span></label>
                   <input id="phone-hero" type="tel" name="phone" placeholder="+372 ..." />
                 </div>
 
                 <div class="form-group">
-                  <label for="message-hero">Mis projekt?</label>
-                  <textarea id="message-hero" name="message" rows="4" placeholder="Räägi paari sõnaga oma ideest..." required></textarea>
+                  <label for="message-hero" data-i18n="labelProject">Mis projekt?</label>
+                  <textarea id="message-hero" name="message" rows="4" placeholder="Räägi paari sõnaga oma ideest..." data-i18n-placeholder="placeholderMessage" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-full">Saada päring</button>
-                <p class="micro-text">Vastame 24 tunni jooksul. Esimene konsultatsioon on tasuta.</p>
-                <div class="notification" role="status" aria-live="polite">Aitäh! Võtame sinuga peagi ühendust 👋</div>
+                <button type="submit" class="btn btn-full" data-i18n="btnSend">Saada päring</button>
+                <p class="micro-text" data-i18n="microText">Vastame 24 tunni jooksul. Esimene konsultatsioon on tasuta.</p>
+                <div class="notification" role="status" aria-live="polite" data-i18n="notification">Aitäh! Võtame sinuga peagi ühendust</div>
               </form>
             </div>
           </div>
@@ -173,22 +174,22 @@
       <!-- BENEFITS -->
       <section class="section-benefits">
         <div class="container">
-          <h2 class="heading-secondary">Miks ettevõtted valivad meid</h2>
+          <h2 class="heading-secondary" data-i18n="benefitsTitle">Miks ettevõtted valivad meid</h2>
           <div class="benefits-grid">
             <article class="benefit-card benefit-card--mint">
               <img src="./pildid/handshake.svg" alt="" class="benefit-icon" />
-              <h3 class="heading-tertiary">Personaalne lähenemine</h3>
-              <p>Kuulame sind, saame aru sinu ärist ja teeme lahenduse, mis päriselt sobib.</p>
+              <h3 class="heading-tertiary" data-i18n="benefitPersonalTitle">Personaalne lähenemine</h3>
+              <p data-i18n="benefitPersonalText">Kuulame sind, saame aru sinu ärist ja teeme lahenduse, mis päriselt sobib.</p>
             </article>
             <article class="benefit-card benefit-card--lavender">
               <img src="./pildid/wallet.svg" alt="" class="benefit-icon" />
-              <h3 class="heading-tertiary">Sõbralik hind</h3>
-              <p>Ausad hinnad ilma peidetud tasudeta. Sobilikud ka alustavatele ettevõtetele.</p>
+              <h3 class="heading-tertiary" data-i18n="benefitPriceTitle">Sõbralik hind</h3>
+              <p data-i18n="benefitPriceText">Ausad hinnad ilma peidetud tasudeta. Sobilikud ka alustavatele ettevõtetele.</p>
             </article>
             <article class="benefit-card benefit-card--yellow">
               <img src="./pildid/clock-clockwise.svg" alt="" class="benefit-icon" />
-              <h3 class="heading-tertiary">Kiire valmimine</h3>
-              <p>Lihtne koduleht valmib paari nädalaga, IT-lahendused kokkuleppel. Ei mingit venitamist ega üllatusi.</p>
+              <h3 class="heading-tertiary" data-i18n="benefitSpeedTitle">Kiire valmimine</h3>
+              <p data-i18n="benefitSpeedText">Lihtne koduleht valmib paari nädalaga, IT-lahendused kokkuleppel. Ei mingit venitamist ega üllatusi.</p>
             </article>
           </div>
         </div>
@@ -197,27 +198,27 @@
       <!-- HOW IT WORKS -->
       <section class="section-process">
         <div class="container">
-          <h2 class="heading-secondary">Kuidas see töötab</h2>
+          <h2 class="heading-secondary" data-i18n="processTitle">Kuidas see töötab</h2>
           <ol class="process-grid">
             <li class="process-step">
               <span class="step-num">1</span>
-              <h3 class="heading-tertiary">Võta ühendust</h3>
-              <p>Täida vorm — alustame vestlusest.</p>
+              <h3 class="heading-tertiary" data-i18n="step1Title">Võta ühendust</h3>
+              <p data-i18n="step1Text">Täida vorm — alustame vestlusest.</p>
             </li>
             <li class="process-step">
               <span class="step-num">2</span>
-              <h3 class="heading-tertiary">Tasuta konsultatsioon</h3>
-              <p>Räägime sinu vajadustest ja pakume parima lahenduse.</p>
+              <h3 class="heading-tertiary" data-i18n="step2Title">Tasuta konsultatsioon</h3>
+              <p data-i18n="step2Text">Räägime sinu vajadustest ja pakume parima lahenduse.</p>
             </li>
             <li class="process-step">
               <span class="step-num">3</span>
-              <h3 class="heading-tertiary">Disain & arendus</h3>
-              <p>Loome kodulehe või IT-lahenduse ja hoiame sind kursis iga sammuga.</p>
+              <h3 class="heading-tertiary" data-i18n="step3Title">Disain & arendus</h3>
+              <p data-i18n="step3Text">Loome kodulehe või IT-lahenduse ja hoiame sind kursis iga sammuga.</p>
             </li>
             <li class="process-step">
               <span class="step-num">4</span>
-              <h3 class="heading-tertiary">Projekt valmis</h3>
-              <p>Paneme lahenduse tööle ja õpetame sulle, kuidas seda kasutada.</p>
+              <h3 class="heading-tertiary" data-i18n="step4Title">Projekt valmis</h3>
+              <p data-i18n="step4Text">Paneme lahenduse tööle ja õpetame sulle, kuidas seda kasutada.</p>
             </li>
           </ol>
         </div>
@@ -226,17 +227,18 @@
       <!-- RECENT WORK -->
       <section class="section-work">
         <div class="container">
-          <h2 class="heading-secondary">Hiljutine töö</h2>
+          <h2 class="heading-secondary" data-i18n="workTitle">Hiljutine töö</h2>
           <article class="work-card">
             <img src="./pildid/agilityliit-kalender.webp" class="work-img" alt="Agilityliit" />
             <div class="work-body">
-              <h3 class="heading-tertiary">Agilityliit</h3>
-              <p>Võistluskalendri süsteem, kus korraldajad saavad lisada võistlusi ja võistlejad registreerida end koos koeraga erinevatele võistlustele.</p>
+              <h3 class="heading-tertiary" data-i18n="workProjectTitle">Agilityliit</h3>
+              <p data-i18n="workProjectDesc">Võistluskalendri süsteem, kus korraldajad saavad lisada võistlusi ja võistlejad registreerida end koos koeraga erinevatele võistlustele.</p>
               <a
                 href="https://agilityliit.ee/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="link-inline">
+                class="link-inline"
+                data-i18n="workProjectLink">
                 Vaata projekti →
               </a>
             </div>
@@ -270,27 +272,27 @@
       <!-- FAQ -->
       <section class="section-faq">
         <div class="container">
-          <h2 class="heading-secondary">Korduma kippuvad küsimused</h2>
+          <h2 class="heading-secondary" data-i18n="faqTitle">Korduma kippuvad küsimused</h2>
           <div class="faq-list">
             <details class="faq-item">
-              <summary>Kui palju koduleht või IT-lahendus maksab?</summary>
-              <p>Lihtne koduleht algab 300€-st. IT-lahenduste hind sõltub projekti mahust — küsi tasuta pakkumist ja anname ausa hinnangu.</p>
+              <summary data-i18n="faq1Q">Kui palju koduleht või IT-lahendus maksab?</summary>
+              <p data-i18n="faq1A">Lihtne koduleht algab 300€-st. IT-lahenduste hind sõltub projekti mahust — küsi tasuta pakkumist ja anname ausa hinnangu.</p>
             </details>
             <details class="faq-item">
-              <summary>Kui kaua võtab kodulehe tegemine aega?</summary>
-              <p>Enamik projekte valmib 2–4 nädalaga. Suuremad lahendused võivad võtta kuni 8 nädalat. Lepime tähtajad alguses kokku.</p>
+              <summary data-i18n="faq2Q">Kui kaua võtab kodulehe tegemine aega?</summary>
+              <p data-i18n="faq2A">Enamik projekte valmib 2–4 nädalaga. Suuremad lahendused võivad võtta kuni 8 nädalat. Lepime tähtajad alguses kokku.</p>
             </details>
             <details class="faq-item">
-              <summary>WordPress või eritellimusel koduleht?</summary>
-              <p>Sõltub sinu vajadustest. Kodulehe jaoks soovitame tihti WordPressi — seda on lihtne ise hallata. Keerulisemate kodulehtede ja IT-süsteemide jaoks ehitame eritellimusel.</p>
+              <summary data-i18n="faq3Q">WordPress või eritellimusel koduleht?</summary>
+              <p data-i18n="faq3A">Sõltub sinu vajadustest. Kodulehe jaoks soovitame tihti WordPressi — seda on lihtne ise hallata. Keerulisemate kodulehtede ja IT-süsteemide jaoks ehitame eritellimusel.</p>
             </details>
             <details class="faq-item">
-              <summary>Kas pakute ka hooldust pärast valmimist?</summary>
-              <p>Jah! Pakume igakuist hoolduspaketti, mis katab uuendusi, varundused ja väikesed muudatused. Võid ka ise hallata — õpetame su selgeks.</p>
+              <summary data-i18n="faq4Q">Kas pakute ka hooldust pärast valmimist?</summary>
+              <p data-i18n="faq4A">Jah! Pakume igakuist hoolduspaketti, mis katab uuendusi, varundused ja väikesed muudatused. Võid ka ise hallata — õpetame su selgeks.</p>
             </details>
             <details class="faq-item">
-              <summary>Milliseid IT-lahendusi te pakute?</summary>
-              <p>Teeme erinevaid IT-süsteeme vastavalt vajadusele — sisehaldussüsteemid, automaatika, andmebaasid, API-liidesed ja muu. Räägi oma vajadusest ja leiame parima lahenduse.</p>
+              <summary data-i18n="faq5Q">Milliseid IT-lahendusi te pakute?</summary>
+              <p data-i18n="faq5A">Teeme erinevaid IT-süsteeme vastavalt vajadusele — sisehaldussüsteemid, automaatika, andmebaasid, API-liidesed ja muu. Räägi oma vajadusest ja leiame parima lahenduse.</p>
             </details>
           </div>
         </div>
@@ -300,35 +302,35 @@
       <section class="section-cta-repeat" id="kontakt">
         <div class="container">
           <div class="cta-card">
-            <h2 class="heading-secondary">Räägime sinu projektist</h2>
-            <p class="hero-sub">Jäta oma kontaktid ja võtame ise ühendust.</p>
+            <h2 class="heading-secondary" data-i18n="ctaTitle">Räägime sinu projektist</h2>
+            <p class="hero-sub" data-i18n="ctaSub">Jäta oma kontaktid ja võtame ise ühendust.</p>
             <form action="php/send_email.php" class="lead-form lead-form--compact" method="POST">
               <label for="website-cta" class="visually-hidden">Website</label>
               <input type="text" id="website-cta" name="website" tabindex="-1" autocomplete="off" class="visually-hidden" />
 
               <div class="form-group">
-                <label for="name-cta">Nimi</label>
-                <input id="name-cta" type="text" name="full-name" placeholder="Sinu nimi" required />
+                <label for="name-cta" data-i18n="labelName">Nimi</label>
+                <input id="name-cta" type="text" name="full-name" placeholder="Sinu nimi" data-i18n-placeholder="placeholderName" required />
               </div>
 
               <div class="form-group">
-                <label for="email-cta">E-post</label>
-                <input id="email-cta" type="email" name="email" placeholder="sinu@email.ee" required />
+                <label for="email-cta" data-i18n="labelEmail">E-post</label>
+                <input id="email-cta" type="email" name="email" placeholder="sinu@email.ee" data-i18n-placeholder="placeholderEmail" required />
               </div>
 
               <div class="form-group">
-                <label for="phone-cta">Telefon <span class="optional">(valikuline)</span></label>
+                <label for="phone-cta"><span data-i18n="labelPhone">Telefon</span> <span class="optional" data-i18n="labelOptional">(valikuline)</span></label>
                 <input id="phone-cta" type="tel" name="phone" placeholder="+372 ..." />
               </div>
 
               <div class="form-group">
-                <label for="message-cta">Mis projekt?</label>
-                <textarea id="message-cta" name="message" rows="3" placeholder="Paar sõna sinu ideest..." required></textarea>
+                <label for="message-cta" data-i18n="labelProject">Mis projekt?</label>
+                <textarea id="message-cta" name="message" rows="3" placeholder="Paar sõna sinu ideest..." data-i18n-placeholder="placeholderMessageCta" required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-full">Saada päring</button>
-              <p class="micro-text">Vastame 24 tunni jooksul 💌</p>
-              <div class="notification" role="status" aria-live="polite">Aitäh! Võtame sinuga peagi ühendust 👋</div>
+              <button type="submit" class="btn btn-full" data-i18n="btnSend">Saada päring</button>
+              <p class="micro-text" data-i18n="microTextCta">Vastame 24 tunni jooksul</p>
+              <div class="notification" role="status" aria-live="polite" data-i18n="notification">Aitäh! Võtame sinuga peagi ühendust 👋</div>
             </form>
           </div>
         </div>
@@ -344,6 +346,7 @@
       </div>
     </footer>
 
+    <script src="./js/i18n.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

@@ -4,6 +4,28 @@ All notable changes to the WebCodes website project.
 
 ---
 
+## [2.2.0] - 2026-04-11
+
+### English Language Support
+
+Added full English translation with a client-side language toggle.
+
+### Added
+
+- **Language toggle button** in header navbar — pill-shaped "EN"/"ET" button to switch between Estonian and English
+- **`js/i18n.js`** — complete i18n system with `data-i18n` attribute-based text replacement, `data-i18n-placeholder` for form inputs, and localStorage persistence
+- **`.btn-lang` CSS** — styled toggle button matching the existing design system (pill shape, primary color border, hover fill)
+- **Full English translations** — all page content: hero, benefits, process steps, portfolio, FAQ (5 items), CTA section, form labels, placeholders, and notification messages
+
+### Changed
+
+- **`index.html`** — added `data-i18n` and `data-i18n-placeholder` attributes to all translatable text elements across the page
+- **`js/script.js`** — form notification messages now use current language from translations object instead of hardcoded Estonian
+- **`<html lang>` attribute** — dynamically updates to `et` or `en` based on selected language (improves accessibility and SEO)
+- **Phone label structure** — wrapped in spans to support independent translation of "Telefon" and "(valikuline)"
+
+---
+
 ## [2.1.0] - 2026-04-11
 
 ### Broader Service Positioning & SEO Improvements

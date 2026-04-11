@@ -42,6 +42,24 @@
   color: var(--primary);
 }
 
+.btn-lang {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--primary);
+  background: transparent;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-lang:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
 /* SECTIONS — mobile first */
 .section-hero,
 .section-benefits,
