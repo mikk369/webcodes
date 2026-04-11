@@ -40,7 +40,7 @@ const translations = {
     step4Text: "Paneme lahenduse tööle ja õpetame sulle, kuidas seda kasutada.",
     workTitle: "Hiljutine töö",
     workProjectTitle: "Agilityliit",
-    workProjectDesc: "Võistluskalendri süsteem, kus korraldajad saavad lisada võistlusi ja võistlejad registreerida end koos koeraga erinevatele võistlustele.",
+    workProjectDesc: "Võistluskalendri süsteem, kus korraldajad saavad lisada võistlusi ja võistlejad registreerida end koos koertega erinevatele võistlustele.",
     workProjectLink: "Vaata projekti →",
     faqTitle: "Korduma kippuvad küsimused",
     faq1Q: "Kui palju koduleht või IT-lahendus maksab?",
