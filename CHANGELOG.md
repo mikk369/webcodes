@@ -4,6 +4,30 @@ All notable changes to the WebCodes website project.
 
 ---
 
+## [2.4.0] - 2026-09-18
+
+### Cloudflare Turnstile Spam Protection
+
+Lead forms were receiving automated spam (bots filling the message with text scraped from the page's meta description). The existing `website` honeypot was being skipped by bots that recognise hidden fields. Added Cloudflare Turnstile — free, mostly invisible to real visitors, and verified server-side so direct POSTs to `send_email.php` are blocked too.
+
+### Added
+
+- **Turnstile widget** on both lead forms (hero + CTA) in `index.html`, plus the `challenges.cloudflare.com/turnstile/v0/api.js` script. Uses `data-size="flexible"` to fit the form width.
+- **Server-side token verification** in `php/send_email.php` (step 7b) — POSTs `cf-turnstile-response` to Cloudflare's `siteverify` endpoint (cURL, with `file_get_contents` fallback) and rejects the request before any email is sent if verification fails.
+- **`turnstile_secret`** config key — added to `config.sample.php` (placeholder) and required in `config.local.php`.
+
+### Changed
+
+- **`js/script.js`** — resets the form's Turnstile widget after every submit attempt, since tokens are single-use.
+
+### Security
+
+- **Fail closed** — a missing `turnstile_secret` triggers the existing "incomplete config" 500 rather than silently skipping verification. Missing/invalid tokens return 400/403 with an Estonian message; unreachable `siteverify` is logged via `error_log`.
+- **Turnstile secret never in git** — lives only in `php/config.local.php`. The public site key is in `index.html`.
+- Honeypot and 30s per-IP rate limit kept as additional layers.
+
+---
+
 ## [2.3.0] - 2026-04-11
 
 ### SMTP Delivery via PHPMailer & Lead Form Hardening
