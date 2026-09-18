@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(function () {
           setPending(false);
+          // Turnstile tokens are single-use — get a fresh one for the next attempt.
+          var widget = form.querySelector('.cf-turnstile');
+          if (widget && window.turnstile) window.turnstile.reset(widget);
         });
     });
   });

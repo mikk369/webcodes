@@ -5,7 +5,8 @@
  * Delivery: authenticated SMTP via PHPMailer (Zone.eu).
  * SMTP credentials are loaded from config.local.php (gitignored).
  *
- * Hardening: validation, header-injection protection, honeypot, rate limiting.
+ * Hardening: validation, header-injection protection, honeypot, rate limiting,
+ * Cloudflare Turnstile bot verification.
  */
 
 header('Content-Type: application/json; charset=utf-8');
@@ -113,13 +114,58 @@ if (!is_file($configPath)) {
     respond(false, 'Serveri konfiguratsioon puudub. Palun võta ühendust otse: info@webcodes.ee');
 }
 $config = require $configPath;
-$requiredKeys = ['smtp_host', 'smtp_port', 'smtp_secure', 'smtp_user', 'smtp_pass', 'from_email', 'from_name', 'to_email'];
+$requiredKeys = ['smtp_host', 'smtp_port', 'smtp_secure', 'smtp_user', 'smtp_pass', 'from_email', 'from_name', 'to_email', 'turnstile_secret'];
 foreach ($requiredKeys as $key) {
     if (!isset($config[$key]) || $config[$key] === '') {
         log_error('config_incomplete', 'missing key: ' . $key);
         http_response_code(500);
         respond(false, 'Serveri konfiguratsioon on puudulik. Palun võta ühendust otse: info@webcodes.ee');
     }
+}
+
+// ---------------------------------------------------------------------------
+// 7b. Cloudflare Turnstile — verify the token server-side (bot protection).
+// ---------------------------------------------------------------------------
+$token = isset($_POST['cf-turnstile-response']) ? (string)$_POST['cf-turnstile-response'] : '';
+if ($token === '' || strlen($token) > 2048) {
+    http_response_code(400);
+    respond(false, 'Palun kinnita, et oled inimene, ja proovi uuesti.');
+}
+
+$verifyPayload = http_build_query([
+    'secret'   => $config['turnstile_secret'],
+    'response' => $token,
+    'remoteip' => $ip,
+]);
+$verifyUrl  = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+$verifyRaw  = false;
+
+if (function_exists('curl_init')) {
+    $ch = curl_init($verifyUrl);
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $verifyPayload,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 10,
+    ]);
+    $verifyRaw = curl_exec($ch);
+    curl_close($ch);
+} else {
+    $verifyRaw = @file_get_contents($verifyUrl, false, stream_context_create(['http' => [
+        'method'  => 'POST',
+        'header'  => 'Content-Type: application/x-www-form-urlencoded',
+        'content' => $verifyPayload,
+        'timeout' => 10,
+    ]]));
+}
+
+$verify = is_string($verifyRaw) ? json_decode($verifyRaw, true) : null;
+if (!is_array($verify) || empty($verify['success'])) {
+    if (!is_array($verify)) {
+        log_error('turnstile_unreachable', 'siteverify request failed');
+    }
+    http_response_code(403);
+    respond(false, 'Robotikontroll ebaõnnestus. Palun värskenda lehte ja proovi uuesti.');
 }
 
 // ---------------------------------------------------------------------------

@@ -18,4 +18,8 @@ return [
     'from_email'  => 'info@webcodes.ee',
     'from_name'   => 'WebCodes',
     'to_email'    => 'info@webcodes.ee',
+
+    // Cloudflare Turnstile secret key (spam protection).
+    // The matching public site key goes in index.html (data-sitekey).
+    'turnstile_secret' => 'REPLACE_WITH_TURNSTILE_SECRET_KEY',
 ];
